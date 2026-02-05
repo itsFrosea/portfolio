@@ -86,7 +86,7 @@ function drawSnowflakes() {
 }
 
 // 🌫️ Scroll + Active Nav Handler (optimized)
-const sections = document.querySelectorAll("section");
+const sections = document.querySelectorAll("section, #frost-footer");
 const navLinks = document.querySelectorAll(".frost-navbar .nav-links a");
 const smoothAnchors = document.querySelectorAll('a[href^="#"]');
 let ticking = false;
@@ -97,18 +97,22 @@ function handleScroll() {
   // Blur background toggle
   document.body.classList.toggle("blurred", scrollY > 50);
 
-  // Highlight active section
   sections.forEach(section => {
     const rect = section.getBoundingClientRect();
-    if (rect.top <= 150 && rect.bottom >= 150) {
+    const triggerPoint = window.innerHeight * 0.4;
+
+    if (rect.top <= triggerPoint && rect.bottom >= triggerPoint) {
       navLinks.forEach(link => link.classList.remove("active"));
+
       const activeLink = document.querySelector(
         `.frost-navbar .nav-links a[href="#${section.id}"]`
       );
+
       if (activeLink) activeLink.classList.add("active");
     }
   });
 }
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {

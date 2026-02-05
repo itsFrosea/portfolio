@@ -39,6 +39,9 @@ body {
     z-index: 0;
 }
 
+
+
+
 /* Background goes to pseudo-element */
 body::before {
     content: "";
@@ -67,6 +70,13 @@ body.blurred::before {
             url('assets/banner-mobile.png');
     }
 }
+@media (max-width: 768px) {
+  .frosthub-logo {
+    transform: scale(1.25);
+    padding: 20px;
+  }
+}
+
 
 
 
@@ -273,9 +283,9 @@ section {
 
 /* Specific styling for the #about section */
 #about {
-  margin-top: -420px;        /* Pulls section up strongly */
-  padding: 10px 20px 60px;   /* Reduces top spacing further */
-  scroll-margin-top: 140px;  /* Keeps scroll behavior clean */
+  margin-top: 0;        /* Pulls section up strongly */
+  padding: 80px 20px;   /* Reduces top spacing further */
+  scroll-margin-top: 160px;  /* Keeps scroll behavior clean */
 }
 
 /* Paragraph spacing in #about (moved from inline) */
@@ -322,6 +332,8 @@ h2 {
   height: 100vh;
   position: relative;
   transition: filter 0.6s ease, opacity 0.6s ease;
+  min-height: 100vh;
+  padding-bottom: 120px;
 }
 
 
@@ -491,6 +503,19 @@ h2 {
         width: 100%;
     }
 }
+
+@media (max-width: 768px) {
+  .frost-navbar {
+    position: sticky;
+    top: 0;
+  }
+
+  body.mobile-nav-open {
+    overflow: hidden;
+    touch-action: none;
+  }
+}
+
 /* --- END OF MODIFIED MEDIA QUERY FOR MOBILE NAV LINKS --- */
 
 /* General Button Styles (btn is more generic, frosty-btn is specific) */
@@ -1096,6 +1121,56 @@ section.out-down {
   opacity: 0;
   transform: translateY(60px) scale(0.9);
   transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* =========================
+   SERVICES – MOBILE SWIPE
+   ========================= */
+@media (max-width: 768px) {
+  #services {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .services-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 16px 40px;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .services-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .service-card {
+    min-width: 85%;
+    scroll-snap-align: center;
+
+    transform: translateX(40px);
+    opacity: 0;
+    animation: serviceSlideIn 0.6s ease forwards;
+  }
+}
+
+@keyframes serviceSlideIn {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+/* =========================
+   FrostHub App Thumbnail Fix
+   ========================= */
+.frosthub-logo {
+  transform: scale(1.18);            /* slightly bigger */
+  transform-origin: center top;      /* favor top so text stays visible */
+  object-fit: contain;               /* VERY IMPORTANT */
+  aspect-ratio: 1 / 1;               /* square works best for logos */
+  background: white;                 /* keeps logo readable */
+  padding: 16px;                     /* breathing room */
 }
 
 
