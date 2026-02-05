@@ -1162,16 +1162,23 @@ section.out-down {
   }
 }
 /* =========================
-   FrostHub App Thumbnail Fix
+   FrostHub Logo – Clean
    ========================= */
 .frosthub-logo {
-  transform: scale(1.18);            /* slightly bigger */
-  transform-origin: center top;      /* favor top so text stays visible */
-  object-fit: contain;               /* VERY IMPORTANT */
-  aspect-ratio: 1 / 1;               /* square works best for logos */
-  background: white;                 /* keeps logo readable */
-  padding: 16px;                     /* breathing room */
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+
+  object-fit: contain;
+  background: transparent;   /* ❄️ NO BLOCK */
+  padding: 0;                /* ❄️ NO PADDING */
+  border-radius: 0;          /* ❄️ NO SHAPE */
+  box-shadow: none;          /* ❄️ NO BOX */
+
+  filter: drop-shadow(0 0 18px rgba(0, 229, 255, 0.35));
 }
+
+
 
 
 
