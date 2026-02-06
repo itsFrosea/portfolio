@@ -524,8 +524,9 @@ h2 {
   }
 
   body.mobile-nav-open {
-    overflow: hidden;
-    touch-action: none;
+    overflow: hidden;       /* stops background scroll */
+    position: fixed;        /* locks body position */
+    width: 100%;
   }
 }
 @media (max-width: 768px) {
