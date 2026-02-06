@@ -524,10 +524,10 @@ h2 {
   }
 
   body.mobile-nav-open {
-    overflow: hidden;       /* stops background scroll */
-    position: fixed;        /* locks body position */
-    width: 100%;
-  }
+  overflow: hidden;       /* stops background scroll */
+  position: fixed;        /* locks body position */
+  width: 100%;
+}
 }
 @media (max-width: 768px) {
   body {
