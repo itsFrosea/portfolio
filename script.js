@@ -25,12 +25,12 @@ function showTab(tabId) {
 }
 
 // 📱 Mobile navigation toggle
-function toggleMobileNav() {
+function toggleMobileNav(e) {
+  e.stopPropagation(); // ❄️ IMPORTANT
   const mobileNav = document.getElementById('mobileNav');
   const isActive = mobileNav.classList.toggle('active');
-  document.body.classList.toggle('mobile-nav-open', isActive); // disable scroll when nav open
+  document.body.classList.toggle('mobile-nav-open', isActive);
 }
-
 // ❄️ Animated Snowfall Effect
 const snowflakes = [];
 const canvas = document.createElement('canvas');

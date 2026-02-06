@@ -109,16 +109,12 @@ canvas {
   -webkit-backdrop-filter: blur(12px) saturate(120%);
   padding: 18px 40px;
 
-  position: sticky;   /* ✅ ONLY sticky */
+  position: fixed;     /* ✅ DESKTOP DEFAULT */
   top: 0;
-
-  width: 100%;
   left: 0;
-  z-index: 9999;      /* ✅ higher than canvas */
-  
-  will-change: transform;
-  transform: translateZ(0);
+  width: 100%;
 
+  z-index: 9999;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 0 25px rgba(0, 229, 255, 0.25),
               inset 0 0 12px rgba(173, 216, 230, 0.15);
@@ -420,18 +416,20 @@ h2 {
 
 /* Mobile Toggle Button (Hamburger) */
 .mobile-toggle {
-    position: relative;
-    display: none; /* Hidden by default on desktop */
-    background: none;
-    border: none;
-    font-size: 28px;
-    color: white;
-    cursor: pointer;
-    z-index: 10000;
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+
+  z-index: 10001;
+  touch-action: manipulation; /* ❄️ prevents swipe trigger */
 }
 
 /* Mobile Nav Floating Dropdown */
 .mobile-nav {
+  pointer-events: auto; 
     position: absolute;
     top: 60px; /* right below navbar */
     right: 20px;
@@ -456,6 +454,7 @@ h2 {
 .mobile-nav.active {
     max-height: 400px; /* enough for links */
     opacity: 1;
+    pointer-events: auto; /* allows clicking links when shown */
 }
 
 /* Mobile nav links */
@@ -520,11 +519,18 @@ h2 {
   .frost-navbar {
     position: sticky;
     top: 0;
+    transform: translateZ(0);
+    will-change: transform;
   }
 
   body.mobile-nav-open {
     overflow: hidden;
     touch-action: none;
+  }
+}
+@media (max-width: 768px) {
+  body {
+    padding-top: 0;   /* ❄️ removes gap on mobile */
   }
 }
 
