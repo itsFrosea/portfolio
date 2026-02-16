@@ -765,7 +765,35 @@ footer {
 .social-links a[href*="discord"] {
   color: #5865F2; /* Discord blurple */
 }
+section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+#hero,
+.hero-section {
+  opacity: 1 !important;
+  transform: none !important;
+}
 
+footer {
+  opacity: 1;
+  transform: none;
+}
+section.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section.out-up {
+  opacity: 0;
+  transform: translateY(-40px);
+}
+
+section.out-down {
+  opacity: 0;
+  transform: translateY(40px);
+}
 
 
 /* Hover animation */

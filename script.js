@@ -86,7 +86,7 @@ function drawSnowflakes() {
 }
 
 // 🌫️ Scroll + Active Nav Handler (optimized)
-const sections = document.querySelectorAll("section, #frost-footer");
+const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".frost-navbar .nav-links a");
 const smoothAnchors = document.querySelectorAll('a[href^="#"]');
 let ticking = false;
