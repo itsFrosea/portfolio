@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function(){
+
 const params = new URLSearchParams(window.location.search);
 
 const channel = params.get("channel");
@@ -6,7 +8,8 @@ const text = document.getElementById("channelText");
 
 if(channel){
 
-text.innerHTML = "Connected channel: <strong>" + channel + "</strong>";
+text.innerHTML =
+"✅ Connected Twitch channel: <strong>" + channel + "</strong>";
 
 }else{
 
@@ -14,13 +17,11 @@ text.innerHTML = "Channel connected.";
 
 }
 
-// OPEN DASHBOARD BUTTON
-
 const btn = document.getElementById("openDashboard");
 
 if(btn){
 
-btn.onclick = () => {
+btn.addEventListener("click", function(){
 
 if(channel){
 
@@ -29,11 +30,12 @@ window.location.href =
 
 }else{
 
-window.location.href =
-"dashboard.html";
+window.location.href = "dashboard.html";
 
 }
 
-};
+});
 
 }
+
+});
