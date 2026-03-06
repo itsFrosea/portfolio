@@ -13,3 +13,27 @@ text.innerHTML = "Connected channel: <strong>" + channel + "</strong>";
 text.innerHTML = "Channel connected.";
 
 }
+
+// OPEN DASHBOARD BUTTON
+
+const btn = document.getElementById("openDashboard");
+
+if(btn){
+
+btn.onclick = () => {
+
+if(channel){
+
+window.location.href =
+"dashboard.html?channel=" + channel;
+
+}else{
+
+window.location.href =
+"dashboard.html";
+
+}
+
+};
+
+}

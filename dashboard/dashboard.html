@@ -1,0 +1,12 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Sharan Bot Dashboard</title><link rel="stylesheet" href="setup.css"></head><body><div class="container"><h1>⚙️ Sharan Bot Dashboard</h1><p id="channelText"></p><!-- TIMED MESSAGES --><div class="card"><h2>Timed Messages</h2><input id="tm_message" placeholder="Message text"><input id="tm_interval" type="number" placeholder="Interval minutes"><button onclick="addTimedMessage()">
+Add Timed Message
+</button></div><!-- CUSTOM COMMANDS --><div class="card"><h2>Custom Commands</h2><input id="cmd_name" placeholder="Command (example: !discord)"><input id="cmd_response" placeholder="Response text"><button onclick="addCommand()">
+Save Command
+</button></div><!-- ECONOMY SETTINGS --><div class="card"><h2>Economy Settings</h2><input id="currency_name" placeholder="Currency name (points / orbs)"><input id="daily_reward" type="number" placeholder="Daily reward"><button onclick="saveEconomy()">
+Save Economy
+</button></div><!-- STREAM MESSAGES --><div class="card"><h2>Stream Messages</h2><textarea id="follow_msg" placeholder="Follow message"></textarea><textarea id="sub_msg" placeholder="Sub message"></textarea><textarea id="live_msg" placeholder="Live message"></textarea><button onclick="saveStreamMessages()">
+Save Messages
+</button></div></div><script src="dashboard.js"></script></body>
+</html>
